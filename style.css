@@ -494,7 +494,7 @@ p { margin: 0 0 1em; }
 
 /* Small source photos: framed inset on the blueprint grid instead of full-bleed. */
 .ev-hero.inset {
-    min-height: 0;
+    min-height: 440px;
     background-image:
         linear-gradient(var(--grid) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
@@ -715,7 +715,7 @@ p { margin: 0 0 1em; }
     .updates li { grid-template-columns: 1fr; gap: 2px; }
     .specs th { width: 40%; }
     .ev-photo figcaption { right: 6px; left: 6px; max-width: none; top: 6px; }
-    .ev-hero.inset { flex-direction: column; align-items: stretch; }
+    .ev-hero.inset { flex-direction: column; align-items: stretch; min-height: 0; }
     .ev-hero.inset .ev-photo { position: relative; transform: none; right: auto; top: auto; width: auto; margin: 20px var(--gutter) 0; }
     .ev-hero.inset .ev-hero-inner { padding-right: var(--gutter); padding-top: 20px; }
 }

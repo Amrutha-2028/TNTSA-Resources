@@ -476,8 +476,8 @@
         if (img) {
             if (img.w && img.w < 1000) $("evHero").classList.add("inset");
             $("evPhoto").innerHTML = `<img src="${esc(img.src)}" alt="${esc(img.alt)}">
-                <figcaption>Photo: <a href="${esc(img.page)}" target="_blank" rel="noopener noreferrer">${esc(img.author)}</a>,
-                <a href="${esc(img.licenseUrl || img.page)}" target="_blank" rel="noopener noreferrer">${esc(img.license)}</a>, via Wikimedia Commons. Illustration only.</figcaption>`;
+                <figcaption>Photo: <a href="${esc(img.page)}" target="_blank" rel="noopener noreferrer">“${esc(img.title)}”</a> by ${img.authorUrl ? `<a href="${esc(img.authorUrl)}" target="_blank" rel="noopener noreferrer">${esc(img.author)}</a>` : esc(img.author)},
+                <a href="${esc(img.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(img.license)}</a>. Illustration only, not a TSA entry.</figcaption>`;
         } else {
             $("evHero").classList.add("no-photo");
         }

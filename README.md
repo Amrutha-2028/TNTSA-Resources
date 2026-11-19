@@ -18,10 +18,10 @@ python3 -m http.server 8000
 | `index.html` | Season overview, key dates, searchable and filterable event list, missing-info list, sources |
 | `event.html` | Event detail page (`event.html?event=<slug>`) |
 | `data.js` | All event data, key dates, and source links. **Edit this file to update content.** |
-| `images.js` | Photo credits (photographer, license, Commons page) for every event image |
+| `images.js` | Photo credits (photographer, license, original page) for every event image |
 | `app.js` | Rendering, search, filters, and per-event timelines |
 | `style.css` | Styles (blueprint sheet design in TSA blue, red, and white) |
-| `images/` | Event photos from Wikimedia Commons (1280px and 480px versions) |
+| `images/` | Event photos (1024px and 480px versions) |
 
 ## Sources (all 2026–27)
 
@@ -58,7 +58,7 @@ See the "What we couldn't confirm" section on the home page. In short:
 
 ## Photo credits
 
-Event photos come from Wikimedia Commons under Creative Commons or public domain
-licenses. They illustrate the kind of work involved; they are not TSA competition
+Event photos are openly licensed Flickr images (CC BY, CC BY-SA, CC0, or public
+domain) found through [Openverse](https://openverse.org). They illustrate the kind of work involved; they are not TSA competition
 entries. Each event page credits its photographer and license, and the full list
 is in `images.js`.
