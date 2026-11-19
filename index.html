@@ -1,569 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Competitive Events | Tennessee TSA</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Competitive Events 2026–27 | Tennessee TSA</title>
+    <meta name="description" content="Every 2026–27 Technology Student Association high school competitive event: official themes, eligibility, and Tennessee Regional and State dates.">
     <link rel="icon" type="image/png" href="box.png">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<a class="skip" href="#events">Skip to events</a>
 
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <img src="box.png" alt="" width="28" height="28">
+            <span>Tennessee TSA <em>Competitive Events</em></span>
+        </a>
+        <nav aria-label="Main">
+            <a href="#dates">Key dates</a>
+            <a href="#events">Events</a>
+            <a href="#gaps">Missing info</a>
+            <a href="#sources">Sources</a>
+        </nav>
+    </div>
+</header>
 
 <main>
 
-    <section class="hero">
+    <section class="sheet" aria-labelledby="pageTitle">
+        <div class="wrap sheet-grid">
+            <div class="sheet-copy">
+                <h1 id="pageTitle">Every high school event for the 2026–27 season.</h1>
+                <p class="lede">
+                    All 42 TSA high school competitions, this year’s official themes and problems,
+                    and the Tennessee Regional and State dates that apply to each one.
+                </p>
+                <label class="search" for="eventSearch">
+                    <span class="sr-only">Search events</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+                    <input id="eventSearch" type="search" placeholder="Search events, themes, or skills" autocomplete="off">
+                </label>
+            </div>
 
-        <p class="eyebrow">
-            TENNESSEE TSA
-        </p>
-
-        <h1>
-            Competitive Events
-        </h1>
-
-        <p>
-            Explore Tennessee TSA competitive events and find everything
-            you need to get started.
-        </p>
-
-        <div class="search-box">
-            <input
-                type="text"
-                id="eventSearch"
-                placeholder="Search competitive events..."
-                aria-label="Search competitive events"
-            >
+            <aside class="titleblock" aria-label="Season summary">
+                <div class="tb-row tb-head">
+                    <span>Sheet</span>
+                    <strong>HS Competitive Events</strong>
+                </div>
+                <div class="tb-row tb-split">
+                    <div><span>Season</span><strong id="tbSeason">2026–2027</strong></div>
+                    <div><span>Checked</span><strong id="tbChecked"></strong></div>
+                </div>
+                <div class="tb-row tb-next">
+                    <span>Next deadline</span>
+                    <strong id="tbNextLabel">Loading…</strong>
+                    <em id="tbNextDate"></em>
+                </div>
+                <div class="tb-row tb-split">
+                    <div><span>State conference</span><strong>Mar 3–6, Chattanooga</strong></div>
+                    <div><span>Nationals</span><strong>Jun 23–27, Orlando</strong></div>
+                </div>
+                <div class="tb-row tb-foot">
+                    <span>2027 national theme</span>
+                    <strong>“Forward to Fifty”</strong>
+                </div>
+            </aside>
         </div>
-
     </section>
 
+    <section id="dates" class="season wrap" aria-labelledby="datesTitle">
+        <div class="section-head">
+            <h2 id="datesTitle">The season at a glance</h2>
+            <p>Tennessee and national dates in order. Times are Eastern.</p>
+        </div>
+        <div class="legend" aria-hidden="true">
+            <span class="dot rlc"></span> Regional (virtual)
+            <span class="dot slc"></span> State
+            <span class="dot nat"></span> National
+        </div>
+        <ol id="seasonList" class="season-list"></ol>
+    </section>
 
-    <section class="events-section">
+    <section id="events" class="events wrap" aria-labelledby="eventsTitle">
+        <div class="section-head">
+            <h2 id="eventsTitle">Events</h2>
+            <p>Grouped by TSA’s official categories. Open an event for its theme, rules updates, and Tennessee adjustments.</p>
+        </div>
 
-        <div class="section-heading">
+        <div class="filters" role="group" aria-label="Filter events">
+            <div id="catChips" class="chips"></div>
+            <div class="toggles">
+                <label><input type="checkbox" id="fRegional"> Offered at TN Regionals</label>
+                <label><input type="checkbox" id="fPresub"> Pre-submission at TN State</label>
+                <label><input type="checkbox" id="fSolo"> Individuals can enter</label>
+            </div>
+        </div>
 
-            <p class="eyebrow">
-                2027–2028
-            </p>
+        <p id="resultCount" class="result-count" aria-live="polite"></p>
+        <div id="eventGrid" class="event-grid"></div>
+        <p id="noResults" class="no-results" hidden>
+            No events match. Clear a filter or try a shorter search.
+        </p>
+    </section>
 
-            <h2>
-                High School Events
-            </h2>
-
+    <section id="gaps" class="gaps wrap" aria-labelledby="gapsTitle">
+        <div class="section-head">
+            <h2 id="gapsTitle">What we couldn’t confirm for 2026–27</h2>
             <p>
-                Browse competitive events for the 2027 and 2028
-                National TSA Conferences.
+                Everything on this site comes from 2026–27 TSA and Tennessee TSA sources.
+                Where those sources leave something out or disagree, it’s listed here instead of guessed.
             </p>
-
         </div>
+        <div id="gapList" class="gap-list"></div>
+    </section>
 
-
-        <div class="category-grid">
-
-            <a href="#architecture" class="category-card">
-                <span class="category-number">01</span>
-                <h3>Architecture & Design</h3>
-                <p>
-                    Architecture, CAD, interior design, and design-focused events.
-                </p>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="#technology" class="category-card">
-                <span class="category-number">02</span>
-                <h3>Technology & Computing</h3>
-                <p>
-                    Programming, software, cybersecurity, AI, and digital technology.
-                </p>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="#engineering" class="category-card">
-                <span class="category-number">03</span>
-                <h3>Engineering</h3>
-                <p>
-                    Engineering design, manufacturing, robotics, and technical challenges.
-                </p>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="#leadership" class="category-card">
-                <span class="category-number">04</span>
-                <h3>Leadership</h3>
-                <p>
-                    Leadership, communication, presentations, and professional skills.
-                </p>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="#media" class="category-card">
-                <span class="category-number">05</span>
-                <h3>Media & Communication</h3>
-                <p>
-                    Video, podcasting, photography, design, and storytelling.
-                </p>
-                <span class="arrow">→</span>
-            </a>
-
-            <a href="#stem" class="category-card">
-                <span class="category-number">06</span>
-                <h3>STEM & Emerging Technology</h3>
-                <p>
-                    Science, data, biotechnology, transportation, and emerging technologies.
-                </p>
-                <span class="arrow">→</span>
-            </a>
-
+    <section id="sources" class="sources wrap" aria-labelledby="sourcesTitle">
+        <div class="section-head">
+            <h2 id="sourcesTitle">Sources</h2>
+            <p>The full Competitive Events Guide (rubrics, time limits, page counts) is only available to members. Ask your chapter advisor for it.</p>
         </div>
-
-
-        <!-- ARCHITECTURE -->
-
-        <div class="event-category" id="architecture">
-
-            <div class="category-title">
-                <p class="eyebrow">01</p>
-                <h2>Architecture & Design</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=architectural-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Architectural Design</h3>
-                    <p>Develop architectural plans, models, and a virtual walkthrough.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=computer-aided-design-architecture" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Computer-Aided Design (CAD), Architecture</h3>
-                    <p>Develop architectural representations using computer-aided design.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=interior-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Interior Design</h3>
-                    <p>Develop an interior design solution for a given challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=fashion-design-and-technology" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Fashion Design and Technology</h3>
-                    <p>Create a wearable garment and supporting documentation.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- TECHNOLOGY -->
-
-        <div class="event-category" id="technology">
-
-            <div class="category-title">
-                <p class="eyebrow">02</p>
-                <h2>Technology & Computing</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=artificial-intelligence" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Artificial Intelligence</h3>
-                    <p>Demonstrate knowledge of AI concepts and solve problems using GenAI.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=cybersecurity" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Cybersecurity</h3>
-                    <p>Address cybersecurity problems through Capture the Flag challenges.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=software-development" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Software Development</h3>
-                    <p>Design and develop a software solution.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=video-game-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Video Game Design</h3>
-                    <p>Design and develop a complete video game.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=webmaster" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Webmaster</h3>
-                    <p>Design and develop a website around a given theme.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=virtual-reality-simulation" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Virtual Reality Simulation</h3>
-                    <p>Create a virtual reality simulation that addresses the annual challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- ENGINEERING -->
-
-        <div class="event-category" id="engineering">
-
-            <div class="category-title">
-                <p class="eyebrow">03</p>
-                <h2>Engineering</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=animatronics" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Animatronics</h3>
-                    <p>Create an animatronic device with sound, lights, and an appropriate environment.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=automated-manufacturing-systems" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Automated Manufacturing Systems</h3>
-                    <p>Engineer and prototype an automated manufacturing system.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=computer-aided-design-engineering" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Computer-Aided Design (CAD), Engineering</h3>
-                    <p>Develop three-dimensional engineering CAD representations.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=engineering-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Engineering Design</h3>
-                    <p>Develop an engineering solution based on the annual challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=manufacturing-prototype" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Manufacturing Prototype</h3>
-                    <p>Create a prototype that solves a manufacturing challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=robotics" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Robotics</h3>
-                    <p>Design, build, program, and operate a robot to solve the competition challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=structural-design-and-engineering" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Structural Design and Engineering</h3>
-                    <p>Apply engineering principles to develop a structural solution.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=transportation-modeling" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Transportation Modeling</h3>
-                    <p>Design and construct a transportation model according to the annual challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=hybrid-racer-xl" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Hybrid Racer XL</h3>
-                    <p>Design, construct, and race a dual-powered car.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=dragster-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Dragster Design</h3>
-                    <p>Design and construct a CO₂-powered dragster.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=flight-endurance" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Flight Endurance</h3>
-                    <p>Design and optimize a rubber-band-powered model aircraft.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=drone-challenge" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Drone Challenge (UAV)</h3>
-                    <p>Design, build, program, document, and test an unmanned aerial vehicle.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- LEADERSHIP -->
-
-        <div class="event-category" id="leadership">
-
-            <div class="category-title">
-                <p class="eyebrow">04</p>
-                <h2>Leadership</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=chapter-team" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Chapter Team</h3>
-                    <p>Demonstrate knowledge of TSA and parliamentary procedure.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=debating-technological-issues" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Debating Technological Issues</h3>
-                    <p>Research and debate an annual technological issue.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=extemporaneous-speech" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Extemporaneous Speech</h3>
-                    <p>Prepare and deliver a technology-related speech.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=prepared-presentation" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Prepared Presentation</h3>
-                    <p>Prepare and deliver an effective presentation.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=technology-bowl" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Technology Bowl</h3>
-                    <p>Demonstrate knowledge of technology through team competition.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=technology-problem-solving" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Technology Problem Solving</h3>
-                    <p>Work as a team to solve an onsite technology challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- MEDIA -->
-
-        <div class="event-category" id="media">
-
-            <div class="category-title">
-                <p class="eyebrow">05</p>
-                <h2>Media & Communication</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=audio-podcasting" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Audio Podcasting</h3>
-                    <p>Create an original podcast addressing the annual theme.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=children-stories" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Children's Stories</h3>
-                    <p>Create an illustrated children's story addressing the annual theme.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=digital-video-production" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Digital Video Production</h3>
-                    <p>Create a digital video and documentation portfolio.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=music-production" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Music Production</h3>
-                    <p>Create and produce an original musical piece.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=photographic-technology" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Photographic Technology</h3>
-                    <p>Demonstrate photographic knowledge and creative skills.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=promotional-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Promotional Design</h3>
-                    <p>Develop a promotional design solution based on the annual challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=on-demand-video" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>On Demand Video</h3>
-                    <p>Create a video response to an onsite challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=vlogging" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Vlogging</h3>
-                    <p>Create a video series addressing the annual challenge.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=stem-mass-media" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>STEM Mass Media</h3>
-                    <p>Develop a news story through video and digital journalism.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- STEM -->
-
-        <div class="event-category" id="stem">
-
-            <div class="category-title">
-                <p class="eyebrow">06</p>
-                <h2>STEM & Emerging Technology</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=biotechnology-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Biotechnology Design</h3>
-                    <p>Research a biotechnology problem and develop a solution.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=board-game-design" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Board Game Design</h3>
-                    <p>Develop, build, and package a complete board game.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=data-science-and-analytics" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Data Science and Analytics</h3>
-                    <p>Analyze data related to a societal issue and communicate findings.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=forensic-science" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Forensic Science</h3>
-                    <p>Apply forensic science knowledge to a mock crime scene.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=future-technology-teacher" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Future Technology and Engineering Teacher</h3>
-                    <p>Develop a classroom application for a developing technology.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-                <a href="event.html?event=fashion-design-and-technology" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Fashion Design and Technology</h3>
-                    <p>Create a wearable garment and supporting documentation.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- ADDITIONAL EVENTS -->
-
-        <div class="event-category" id="additional">
-
-            <div class="category-title">
-                <p class="eyebrow">07</p>
-                <h2>Additional Events</h2>
-            </div>
-
-            <div class="event-grid">
-
-                <a href="event.html?event=manufacturing-prototype" class="event-card">
-                    <span>HIGH SCHOOL</span>
-                    <h3>Manufacturing Prototype</h3>
-                    <p>Design and manufacture a product based on the annual theme.</p>
-                    <strong>View Event →</strong>
-                </a>
-
-            </div>
-
-        </div>
-
+        <ul id="sourceList" class="source-list"></ul>
+        <p class="credit-note">
+            Event photos are openly licensed Flickr images (Creative Commons or public domain) found through Openverse.
+            They are illustrations, not entries from TSA competitions. Each event page credits its photographer.
+        </p>
     </section>
 
 </main>
 
-
-<footer>
-
-    <div class="footer-container">
-
-        <h2>
-            TENNESSEE TSA
-        </h2>
-
-        <p>
-            Technology Student Association
-        </p>
-
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <p><strong>Tennessee TSA Competitive Events</strong>, built from official TSA and Tennessee TSA sources.</p>
+        <p>Always confirm rules in the official guide and with your chapter advisor.</p>
     </div>
-
 </footer>
 
-
-<script src="script.js"></script>
-
+<script src="data.js"></script>
+<script src="images.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
